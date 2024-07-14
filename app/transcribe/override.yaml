@@ -1,0 +1,5 @@
+General:
+  llm_response_interval: 15
+OpenAI:
+  audio_lang: chinese
+  response_lang: chinese

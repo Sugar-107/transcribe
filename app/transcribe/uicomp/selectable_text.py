@@ -81,7 +81,7 @@ class SelectableText(ctk.CTkFrame):
                                 background='#252422', font=("Arial", 20),
                                 foreground='#639cdc',)
         self.scrollbar = Scrollbar(self, command=self.text_widget.yview)
-        self.text_widget.config(yscrollcommand=self.scrollbar.set)
+        self.text_widget.config(width=30, yscrollcommand=self.scrollbar.set)
 
         self.text_widget.pack(side="left", fill="both", expand=True)
         self.scrollbar.pack(side="right", fill="y")

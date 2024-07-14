@@ -21,7 +21,7 @@ def main():
 
     # Initiate global variables
     global_vars = T_GLOBALS
-
+    # todo
     update_args_config(args, config)
     # Initiate DB
     au.initiate_db(global_vars)

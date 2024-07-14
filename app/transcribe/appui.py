@@ -19,7 +19,7 @@ from uicomp.selectable_text import SelectableText
 
 
 logger = al.get_module_logger(al.UI_LOGGER)
-UI_FONT_SIZE = 20
+UI_FONT_SIZE = 15
 # Order of initialization can be unpredictable in python based on where imports are placed.
 # Setting it to None so comparison is deterministic in update_transcript_ui method
 last_transcript_ui_update_time: datetime.datetime = None
@@ -104,7 +104,7 @@ class AppUI(ctk.CTk):
         self.right_frame.pack(side="right", fill="both", expand=True, padx=10, pady=10)
 
         # LLM Response textbox
-        self.min_response_textbox_width = 300
+        self.min_response_textbox_width = 1000
         self.response_textbox = ctk.CTkTextbox(self.right_frame, self.min_response_textbox_width,
                                                font=("Arial", UI_FONT_SIZE),
                                                text_color='#639cdc',
