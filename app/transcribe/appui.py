@@ -19,7 +19,7 @@ from uicomp.selectable_text import SelectableText
 
 
 logger = al.get_module_logger(al.UI_LOGGER)
-UI_FONT_SIZE = 15
+UI_FONT_SIZE = 30
 # Order of initialization can be unpredictable in python based on where imports are placed.
 # Setting it to None so comparison is deterministic in update_transcript_ui method
 last_transcript_ui_update_time: datetime.datetime = None
@@ -696,6 +696,11 @@ def write_in_textbox(textbox: ctk.CTkTextbox, text: str):
     textbox.insert("0.0", text)
     if len(a):
         textbox.tag_add('sel', a[0], a[1])
+        # 为了防止自动滚动，我们保存当前的滚动位置 TODO 测试滚动条，多个窗口的滚动条wei'zh
+    current_vertical_position = textbox.yview()
+    # 恢复之前的滚动位置
+    textbox.yview_moveto(current_vertical_position[0])
+
 
 
 def update_transcript_ui(transcriber: AudioTranscriber, textbox: SelectableText):
